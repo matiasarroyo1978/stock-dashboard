@@ -6,6 +6,7 @@ import Chart from "./Chart";
 import Header from "./Header";
 import StockContext from "../context/StockContext";
 import { fetchStockDetails, fetchQuote } from "../utils/api/stock-api";
+import Footer from "./Footer";
 
 const Dashboard = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -42,6 +43,7 @@ const Dashboard = () => {
   }, [stockSymbol]);
 
   return (
+    <>
     <div
       className={`h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand ${
         darkMode ? "bg-gray-900 text-gray-300" : "bg-neutral-100"
@@ -66,6 +68,8 @@ const Dashboard = () => {
         <Details details={stockDetails} />
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
